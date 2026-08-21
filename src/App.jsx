@@ -48,7 +48,6 @@ function App() {
 
     // Check if both files are uploaded
     if (!resumeFile || !jobFile) {
-      alert("Please upload both Resume and Job Description files.");
       return;
     }
 
