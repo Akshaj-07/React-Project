@@ -156,6 +156,53 @@ function App() {
 
   };
 
+  return (
+
+    <div className="main-container">
+
+      <h1>AI Resume Analyzer</h1>
+
+      <p className="description">
+        Upload your Resume and Job Description to check your ATS score.
+      </p>
+
+
+      <div className="upload-container">
+
+        <ResumeUpload
+          setResumeFile={setResumeFile}
+        />
+
+        <JobDesUpload
+          setJobFile={setJobFile}
+        />
+
+      </div>
+
+
+      <button
+        className="analyze-button"
+        onClick={analyzeResume}
+      >
+        Analyze Resume
+      </button>
+
+
+      {atsScore !== null && (
+
+        <Result
+          atsScore={atsScore}
+          matchedSkills={matchedSkills}
+          missingSkills={missingSkills}
+          review={review}
+        />
+
+      )}
+
+    </div>
+
+  );
+
 }
 
 export default App;
