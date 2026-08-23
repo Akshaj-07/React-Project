@@ -6,21 +6,15 @@ import Result from "./Components/Result.jsx";
 import "./App.css";
 
 function App() {
-  // Files
+
   const [resumeFile, setResumeFile] = useState(null);
   const [jobFile, setJobFile] = useState(null);
-
-  // Results
   const [atsScore, setAtsScore] = useState(null);
   const [matchedSkills, setMatchedSkills] = useState([]);
   const [missingSkills, setMissingSkills] = useState([]);
   const [review, setReview] = useState("");
-
-  // Extra UI / debug
   const [debugInfo, setDebugInfo] = useState("");
 
-  // Synonym groups for skills (mainKey: [variations])
-  // Keep variations as the common ways people write the skill.
   const synonyms = {
     html: ["html"],
     css: ["css"],
@@ -39,7 +33,7 @@ function App() {
     aws: ["aws", "amazon web services"],
     ml: ["machine learning", "ml"],
     ai: ["artificial intelligence", "ai"],
-    angular: ["angular", "angluar"], // include common typo
+    angular: ["angular", "angluar"],
     php: ["php"],
     swift: ["swift"],
     kotlin: ["kotlin"],
@@ -49,12 +43,11 @@ function App() {
     firebase: ["firebase"]
   };
 
-  // Utility: escape regex special characters so variations like "c++" or "node.js" are safe
   const escapeRegex = (str) => {
     return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   };
 
-  // Reset everything
+  
   const resetAll = () => {
     setResumeFile(null);
     setJobFile(null);
@@ -66,39 +59,35 @@ function App() {
   };
 
   const analyzeResume = async () => {
-    // Basic validation
+  
     if (!resumeFile || !jobFile) {
       alert("Please upload both Resume and Job Description files.");
       return;
     }
 
     try {
-      // Read files as text
+      
       const resumeText = await resumeFile.text();
       const jobText = await jobFile.text();
 
-      // Normalize to lowercase for case-insensitive matching
+      
       const resume = resumeText.toLowerCase();
       const jobDescription = jobText.toLowerCase();
 
-      // Prepare result containers
+    
       const matchedSet = new Set();
       const missingSet = new Set();
 
-      // For each skill group, check if any variation appears as a whole word
       Object.keys(synonyms).forEach((skillKey) => {
-        // Normalize variations and sort by length descending to prefer longer matches first (optional)
         const variations = synonyms[skillKey]
           .map((v) => v.toLowerCase())
           .sort((a, b) => b.length - a.length);
 
-        // Check resume and job description for any variation (use escaped regex + word boundaries)
         const skillInResume = variations.some((v) => {
           const pattern = `\\b${escapeRegex(v)}\\b`;
           try {
             return new RegExp(pattern).test(resume);
           } catch (e) {
-            // If regex fails for any reason, fallback to includes on the raw variation
             return resume.includes(v);
           }
         });
@@ -112,44 +101,35 @@ function App() {
           }
         });
 
-        // If job requires it and resume has it -> matched
         if (skillInJob && skillInResume) {
           matchedSet.add(skillKey);
         }
 
-        // If job requires it but resume doesn't -> missing
         if (skillInJob && !skillInResume) {
           missingSet.add(skillKey);
         }
 
-        // If resume mentions a skill but job doesn't, we ignore it for scoring (optional: you could track extras)
       });
 
-      // Convert sets to arrays (sorted alphabetically for consistent UI)
       const matched = Array.from(matchedSet).sort();
       const missing = Array.from(missingSet).sort();
 
-      // Compute score
       const totalSkills = matched.length + missing.length;
       let score = 0;
       if (totalSkills > 0) {
         score = Math.round((matched.length / totalSkills) * 100);
       } else {
-        // If job description didn't contain any of our tracked skills, score is not applicable
         score = 0;
       }
 
-      // Save to state
       setMatchedSkills(matched);
       setMissingSkills(missing);
       setAtsScore(score);
 
-      // Debug info for beginners
       setDebugInfo(
         `Matched: ${matched.join(", ") || "None"} | Missing: ${missing.join(", ") || "None"} | Total tracked: ${totalSkills}`
       );
 
-      // Friendly review messages with clear guidance
       if (totalSkills === 0) {
         setReview(
           "No tracked skills were found in the job description. Try adding more common skills to the tracker or check the job description text."
