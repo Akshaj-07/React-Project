@@ -1,7 +1,7 @@
 import { getMatchLabel } from "../Utils/resumeAnalyser.js";
 
-function SkillList({ skills, type, emptyText }) {
-  if (skills.length === 0) {
+function SkillList({ skills = [], type, emptyText }) {
+  if (!skills || skills.length === 0) {
     return <p className="empty-skills">{emptyText}</p>;
   }
 
@@ -17,10 +17,11 @@ function SkillList({ skills, type, emptyText }) {
 }
 
 function Result({
-  atsScore,
-  matchedSkills,
-  missingSkills,
-  review
+  atsScore = 0,
+  matchedSkills = [],
+  missingSkills = [],
+  review = "",
+  title = "Match overview"
 }) {
   return (
     <section className="result-section">

@@ -1,6 +1,7 @@
 import { parseResume, extractSkills } from "../Utils/resumeParser.js";
 import { matchJobs } from "../Utils/jobMatcher.js";
 import { analyseResume } from "../Utils/resumeAnalyser.js";
+import fallbackJobs from "../../backend/jobs.json";
 
 const API = "/api/jobs";
 
@@ -15,12 +16,19 @@ async function handleResponse(response) {
   return data;
 }
 
-// Get all jobs
+// Get all jobs (with fallback to local catalog if backend is not running)
 export async function getJobs() {
-  const response = await fetch(API);
-  const data = await handleResponse(response);
-
-  return data.jobs;
+  try {
+    const response = await fetch(API);
+    if (!response.ok) {
+      throw new Error(`API responded with status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.jobs || [];
+  } catch (err) {
+    console.warn("Backend server not reached, using local job catalog fallback:", err.message);
+    return fallbackJobs.filter(job => job.active !== false);
+  }
 }
 
 // Add a job
@@ -85,10 +93,24 @@ export async function matchResumeToJob(resumeText, jobText) {
     ? Math.round((matched.length / totalSkills) * 100)
     : (matched.length > 0 ? 100 : 0);
 
+  let review = "";
+  if (totalSkills === 0) {
+    review = "No tracked skills were detected in the job description. Try adding explicit skill keywords.";
+  } else if (score >= 90) {
+    review = "Outstanding! Your resume shows high alignment with the required skills.";
+  } else if (score >= 75) {
+    review = "Strong match! You meet most key requirements with only minor skill gaps.";
+  } else if (score >= 50) {
+    review = "Moderate match. Highlighting the missing skills can boost your chances significantly.";
+  } else {
+    review = "Low match for this role. Consider acquiring or highlighting the key missing skills.";
+  }
+
   return {
     score,
     matched,
     missing,
-    totalSkills: totalSkills || (matched.length + missing.length)
+    totalSkills: totalSkills || (matched.length + missing.length),
+    review
   };
 }

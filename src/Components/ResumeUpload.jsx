@@ -6,30 +6,42 @@ function ResumeUpload({ onResumeLoaded = () => {}, fileName = "", onError = () =
   const [validationError, setValidationError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handleFileChange(event) {
-    const file = event.target.files[0];
+  async function processFile(file) {
+    if (!file) return;
 
     setValidationError("");
     onError?.("");
 
-    if (!file) return;
-
-    onResumeLoaded?.("", "");
-    setSelectedFile(null);
-
     if (!file.name.toLowerCase().endsWith(".txt")) {
       setValidationError("Please select a .txt resume file.");
-      event.target.value = "";
       return;
     }
 
     if (file.size > 1024 * 1024) {
       setValidationError("File size must be under 1 MB.");
-      event.target.value = "";
       return;
     }
 
     setSelectedFile(file);
+    setLoading(true);
+
+    try {
+      const text = await readTextFile(file, 20);
+      onResumeLoaded?.(text, file.name);
+      onError?.("");
+      setValidationError("");
+    } catch (error) {
+      setValidationError(error.message);
+      onError?.(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function handleFileChange(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    processFile(file);
   }
 
   async function handleSubmit(event) {
@@ -41,19 +53,7 @@ function ResumeUpload({ onResumeLoaded = () => {}, fileName = "", onError = () =
       return;
     }
 
-    setLoading(true);
-
-    try {
-      const text = await readTextFile(selectedFile, 20);
-
-      onResumeLoaded?.(text, selectedFile.name);
-      onError?.("");
-      setValidationError("");
-    } catch (error) {
-      setValidationError(error.message);
-    } finally {
-      setLoading(false);
-    }
+    processFile(selectedFile);
   }
 
   return (
