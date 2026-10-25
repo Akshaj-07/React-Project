@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { readTextFile } from "../Utils/resumeParser.js";
 
-function ResumeUpload({ onResumeLoaded, fileName, onError }) {
+function ResumeUpload({ onResumeLoaded = () => {}, fileName = "", onError = () => {} }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [validationError, setValidationError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -10,11 +10,11 @@ function ResumeUpload({ onResumeLoaded, fileName, onError }) {
     const file = event.target.files[0];
 
     setValidationError("");
-    onError("");
+    onError?.("");
 
     if (!file) return;
 
-    onResumeLoaded("", "");
+    onResumeLoaded?.("", "");
     setSelectedFile(null);
 
     if (!file.name.toLowerCase().endsWith(".txt")) {
@@ -46,8 +46,8 @@ function ResumeUpload({ onResumeLoaded, fileName, onError }) {
     try {
       const text = await readTextFile(selectedFile, 20);
 
-      onResumeLoaded(text, selectedFile.name);
-      onError("");
+      onResumeLoaded?.(text, selectedFile.name);
+      onError?.("");
       setValidationError("");
     } catch (error) {
       setValidationError(error.message);

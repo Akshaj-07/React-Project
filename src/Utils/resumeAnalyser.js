@@ -119,3 +119,11 @@ export function getScanLabel(score) {
   if (score >= 50) return "Good start";
   return "Needs work";
 }
+
+// Match rating label for ATS job match
+export function getMatchLabel(score) {
+  if (score >= 90) return "Excellent match";
+  if (score >= 75) return "Strong match";
+  if (score >= 50) return "Moderate match";
+  return "Low match";
+}
