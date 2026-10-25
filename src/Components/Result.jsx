@@ -1,66 +1,85 @@
-function Result({
-  atsScore,
-  matchedSkills,
-  missingSkills,
-  review
-}) {
+import { getMatchLabel } from "../Utils/resumeAnalyser.js";
+
+function SkillList({ skills, type, emptyText }) {
+  if (skills.length === 0) {
+    return <p className="empty-skills">{emptyText}</p>;
+  }
+
   return (
-    <div className="result-container">
-
-      <div className="score-box">
-        <h2>ATS Score</h2>
-
-        <h1>{atsScore}%</h1>
-      </div>
-
-
-      <div className="skills-container">
-
-        <div className="matched-box">
-          <h2>Matched Skills</h2>
-
-          {matchedSkills.length > 0 ? (
-            <ul>
-              {matchedSkills.map((skill, index) => (
-                <li key={index}>
-                  ✓ {skill}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No matched skills found.</p>
-          )}
-        </div>
-
-
-        <div className="missing-box">
-          <h2>Missing Skills</h2>
-
-          {missingSkills.length > 0 ? (
-            <ul>
-              {missingSkills.map((skill, index) => (
-                <li key={index}>
-                  ✗ {skill}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No missing skills found.</p>
-          )}
-        </div>
-
-      </div>
-
-
-      <div className="review-box">
-        <h2>Resume Review</h2>
-
-        <p>{review}</p>
-      </div>
-
+    <div className="skill-chips">
+      {skills.map((skill) => (
+        <span className={`skill-chip ${type}`} key={skill}>
+          {skill}
+        </span>
+      ))}
     </div>
   );
 }
 
-export default Result;
+function Result({
+  atsScore,
+  matchedSkills,
+  missingSkills,
+  review,
+  title = "Match overview"
+}) {
+  return (
+    <section className="result-section">
+      <div className="result-section-heading">
+        <div>
+          <div className="eyebrow">ANALYSIS COMPLETE</div>
+          <h2>{title}</h2>
+        </div>
+        <span className="result-state">Rule-based result</span>
+      </div>
 
+      <div className="result-score-card">
+        <div className="score-number">{atsScore}%</div>
+
+        <div className="score-explanation">
+          <strong>{getMatchLabel(atsScore)}</strong>
+          <p>{review}</p>
+        </div>
+
+        <div className="score-track">
+          <span style={{ width: `${atsScore}%` }} />
+        </div>
+      </div>
+
+      <div className="skills-result-grid">
+        <div className="skills-result-card">
+          <div className="skills-card-heading">
+            <span className="skill-status matched-status">✓</span>
+            <h3>Matched skills</h3>
+          </div>
+
+          <SkillList
+            skills={matchedSkills}
+            type="matched"
+            emptyText="No tracked skills matched yet."
+          />
+        </div>
+
+        <div className="skills-result-card">
+          <div className="skills-card-heading">
+            <span className="skill-status missing-status">＋</span>
+            <h3>Skills to strengthen</h3>
+          </div>
+
+          <SkillList
+            skills={missingSkills}
+            type="missing"
+            emptyText="No missing tracked skills were found."
+          />
+        </div>
+      </div>
+
+      <p className="score-disclaimer">
+        This percentage reflects supported skill-keyword overlap.
+        It is not a hiring prediction.
+      </p>
+    </section>
+  );
+}
+
+export default Result;
