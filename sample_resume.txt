@@ -1,0 +1,17 @@
+John Doe
+Email: john.doe@example.com
+Phone: +1 555-019-2834
+Location: New York, NY
+
+Education
+Bachelor of Science in Computer Science, State University, 2024
+
+Skills
+JavaScript, TypeScript, React, Node.js, Express.js, HTML, CSS, Python, SQL, MongoDB, Git, REST APIs, AWS, Docker
+
+Experience
+Frontend Engineer Intern - Tech Innovators Inc. (2023 - 2024)
+- Developed responsive React web applications used by over 50,000 active users.
+- Built reusable UI components reducing development time by 30%.
+- Integrated RESTful backend services with Express.js and MongoDB.
+- Collaborated using Git and implemented CI/CD pipelines with Docker and AWS.
