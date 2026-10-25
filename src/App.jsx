@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Home from "./Components/Home.jsx";
-import QuickScan from "./Components/Quick_Scan.jsx";
-import JobFinder from "./Components/Job_Finder.jsx";
-import SpecificJobFinder from "./Components/Specific_job_finder.jsx";
+import ResumeUpload from "./Components/ResumeUpload.jsx";
+import JobDesUpload from "./Components/Job_desUpload.jsx";
+import Result from "./Components/Result.jsx";
 import "./App.css";
 
 function App() {

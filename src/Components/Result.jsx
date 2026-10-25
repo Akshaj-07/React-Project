@@ -17,11 +17,10 @@ function SkillList({ skills, type, emptyText }) {
 }
 
 function Result({
-  atsScore = 0,
-  matchedSkills = [],
-  missingSkills = [],
-  review = "",
-  title = "Match overview"
+  atsScore,
+  matchedSkills,
+  missingSkills,
+  review
 }) {
   return (
     <section className="result-section">
