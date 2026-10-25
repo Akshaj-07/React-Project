@@ -1,0 +1,429 @@
+[
+  {
+    "id": "JOB-001",
+    "title": "Frontend Developer Intern",
+    "company": "PixelCraft Technologies",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "Remote",
+    "requiredSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ],
+    "preferredSkills": [
+      "Git",
+      "REST APIs",
+      "Responsive Design"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Build responsive user interfaces and reusable React components.",
+    "active": true
+  },
+  {
+    "id": "JOB-002",
+    "title": "Backend Developer Intern",
+    "company": "CloudBridge Systems",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "India / Hybrid",
+    "requiredSkills": [
+      "Java",
+      "SQL",
+      "REST APIs"
+    ],
+    "preferredSkills": [
+      "Spring Boot",
+      "Git",
+      "PostgreSQL"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Develop backend APIs, database operations, and server-side features.",
+    "active": true
+  },
+  {
+    "id": "JOB-003",
+    "title": "Full Stack Developer Intern",
+    "company": "NextWave Digital",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "Remote",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "REST APIs"
+    ],
+    "preferredSkills": [
+      "Express.js",
+      "MongoDB",
+      "Git"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Build frontend features and backend APIs for web applications.",
+    "active": true
+  },
+  {
+    "id": "JOB-004",
+    "title": "Python Developer Intern",
+    "company": "CodeSphere Labs",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "Bengaluru / Hybrid",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "Problem Solving"
+    ],
+    "preferredSkills": [
+      "Flask",
+      "Django",
+      "Git"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Write Python applications and develop backend functionality.",
+    "active": true
+  },
+  {
+    "id": "JOB-005",
+    "title": "Data Analyst Intern",
+    "company": "InsightMetrics",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "Remote",
+    "requiredSkills": [
+      "SQL",
+      "Excel",
+      "Data Analysis"
+    ],
+    "preferredSkills": [
+      "Python",
+      "Power BI",
+      "Statistics"
+    ],
+    "degreeRequirements": [
+      "Statistics",
+      "Mathematics",
+      "Computer Science",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Analyze datasets, prepare reports, and identify business trends.",
+    "active": true
+  },
+  {
+    "id": "JOB-006",
+    "title": "Machine Learning Intern",
+    "company": "NeuralWorks AI",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "India / Hybrid",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics"
+    ],
+    "preferredSkills": [
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Mathematics",
+      "Data Science",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Prepare datasets and experiment with machine learning models.",
+    "active": true
+  },
+  {
+    "id": "JOB-007",
+    "title": "QA Automation Intern",
+    "company": "QualityFirst Software",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "Pune / Hybrid",
+    "requiredSkills": [
+      "Software Testing",
+      "Test Cases",
+      "Bug Reporting"
+    ],
+    "preferredSkills": [
+      "Selenium",
+      "Python",
+      "API Testing"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Test applications, document defects, and automate repetitive tests.",
+    "active": true
+  },
+  {
+    "id": "JOB-008",
+    "title": "DevOps Engineer Intern",
+    "company": "InfraStack Solutions",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "Remote",
+    "requiredSkills": [
+      "Linux",
+      "Git",
+      "Networking Basics"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "AWS",
+      "CI/CD",
+      "Bash"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Assist with deployment pipelines, infrastructure, and development environments.",
+    "active": true
+  },
+  {
+    "id": "JOB-009",
+    "title": "Cybersecurity Analyst Intern",
+    "company": "SecureGrid",
+    "level": "Internship",
+    "employmentType": "Internship",
+    "location": "India / Hybrid",
+    "requiredSkills": [
+      "Networking",
+      "Linux",
+      "Cybersecurity Fundamentals"
+    ],
+    "preferredSkills": [
+      "Wireshark",
+      "SIEM",
+      "Python",
+      "Incident Response"
+    ],
+    "degreeRequirements": [
+      "Cybersecurity",
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 0,
+    "description": "Assist with security monitoring, vulnerability analysis, and incident documentation.",
+    "active": true
+  },
+  {
+    "id": "JOB-010",
+    "title": "Junior Frontend Developer",
+    "company": "BrightPixel Software",
+    "level": "Entry-Level",
+    "employmentType": "Full-Time",
+    "location": "Chandigarh / Hybrid",
+    "requiredSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Git",
+      "Accessibility",
+      "Testing Library"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 1,
+    "description": "Develop production-ready interfaces and collaborate with designers and backend developers.",
+    "active": true
+  },
+  {
+    "id": "JOB-011",
+    "title": "Junior Backend Developer",
+    "company": "DataRoute Technologies",
+    "level": "Entry-Level",
+    "employmentType": "Full-Time",
+    "location": "Delhi / Hybrid",
+    "requiredSkills": [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "MongoDB",
+      "Authentication",
+      "Automated Testing"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 1,
+    "description": "Implement secure API endpoints, data validation, and database integrations.",
+    "active": true
+  },
+  {
+    "id": "JOB-012",
+    "title": "Junior Java Developer",
+    "company": "EnterpriseCode",
+    "level": "Entry-Level",
+    "employmentType": "Full-Time",
+    "location": "Hyderabad / Hybrid",
+    "requiredSkills": [
+      "Java",
+      "OOP",
+      "SQL",
+      "REST APIs"
+    ],
+    "preferredSkills": [
+      "Spring Boot",
+      "Hibernate",
+      "JUnit",
+      "Git"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 1,
+    "description": "Develop and maintain Java services and enterprise application features.",
+    "active": true
+  },
+  {
+    "id": "JOB-013",
+    "title": "Data Scientist",
+    "company": "PredictiveEdge",
+    "level": "Mid-Level",
+    "employmentType": "Full-Time",
+    "location": "Bengaluru / Hybrid",
+    "requiredSkills": [
+      "Python",
+      "Statistics",
+      "Machine Learning",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Pandas",
+      "Scikit-learn",
+      "Model Evaluation",
+      "Data Visualization"
+    ],
+    "degreeRequirements": [
+      "Data Science",
+      "Statistics",
+      "Mathematics",
+      "Computer Science"
+    ],
+    "experienceYears": 3,
+    "description": "Build predictive models and translate data insights into business recommendations.",
+    "active": true
+  },
+  {
+    "id": "JOB-014",
+    "title": "Cloud Engineer",
+    "company": "SkyCompute",
+    "level": "Mid-Level",
+    "employmentType": "Full-Time",
+    "location": "Remote",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Networking",
+      "Cloud Computing"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 3,
+    "description": "Maintain cloud infrastructure, automate deployments, and improve system reliability.",
+    "active": true
+  },
+  {
+    "id": "JOB-015",
+    "title": "AI Application Developer",
+    "company": "CognitiveStack",
+    "level": "Entry-Level",
+    "employmentType": "Full-Time",
+    "location": "Remote",
+    "requiredSkills": [
+      "Python",
+      "REST APIs",
+      "LLM Integration",
+      "JavaScript"
+    ],
+    "preferredSkills": [
+      "React",
+      "Prompt Engineering",
+      "Vector Databases",
+      "RAG"
+    ],
+    "degreeRequirements": [
+      "Computer Science",
+      "Information Technology",
+      "Related Field"
+    ],
+    "experienceYears": 1,
+    "description": "Integrate AI models into applications and build features powered by language models.",
+    "active": true
+  },
+  {
+    "title": "React Developer",
+    "preferredSkills": [
+      "Git",
+      "REST APIs"
+    ],
+    "company": "Demo Company",
+    "experienceYears": 1,
+    "requiredSkills": [
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "id": "080b0e6e-0632-408d-9e22-b9ceb38df597",
+    "active": true
+  }
+]
