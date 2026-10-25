@@ -2,7 +2,6 @@ import { useState } from "react";
 import ResumeUpload from "./Components/ResumeUpload.jsx";
 import JobDesUpload from "./Components/Job_desUpload.jsx";
 import Result from "./Components/Result.jsx";
-
 import "./App.css";
 
 function App() {
@@ -126,10 +125,6 @@ function App() {
       setMissingSkills(missing);
       setAtsScore(score);
 
-      setDebugInfo(
-        `Matched: ${matched.join(", ") || "None"} | Missing: ${missing.join(", ") || "None"} | Total tracked: ${totalSkills}`
-      );
-
       if (totalSkills === 0) {
         setReview(
           "No tracked skills were found in the job description. Try adding more common skills to the tracker or check the job description text."
@@ -189,11 +184,7 @@ function App() {
         />
       )}
 
-      {debugInfo && (
-        <div style={{ marginTop: 12 }}>
-          <strong>Debug:</strong> <span>{debugInfo}</span>
-        </div>
-      )}
+      
     </div>
   );
 }
