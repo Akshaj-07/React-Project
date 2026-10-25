@@ -36,12 +36,24 @@ const commonSkills = [
 ];
 
 // Extract skills mentioned in resume text
-function extractSkills(text) {
-  const normalizedText = text.toLowerCase();
+export function extractSkills(text) {
+  const normalizedText = (text || "").toLowerCase();
 
   return commonSkills.filter(skill =>
     normalizedText.includes(skill.toLowerCase())
   );
+}
+
+// Read text from an uploaded File object
+export async function readTextFile(file, minLength = 20) {
+  if (!file) {
+    throw new Error("No file provided.");
+  }
+  const text = await file.text();
+  if (!text || text.trim().length < minLength) {
+    throw new Error(`File content must be at least ${minLength} characters.`);
+  }
+  return text;
 }
 
 // Extract email address

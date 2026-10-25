@@ -20,8 +20,7 @@ function Result({
   atsScore,
   matchedSkills,
   missingSkills,
-  review,
-  title = "Match overview"
+  review
 }) {
   return (
     <section className="result-section">

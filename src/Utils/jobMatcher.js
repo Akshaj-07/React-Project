@@ -1,10 +1,15 @@
+import { extractSkills } from "./resumeParser.js";
+
+// Alias extractSkills as detectSkills for backward compatibility
+export const detectSkills = extractSkills;
+
 function normalize(skill) {
   return String(skill).toLowerCase().trim();
 }
 
 export function matchJobs(resume, jobs) {
   const resumeSkills = new Set(
-    (resume.skills || []).map(normalize)
+    (resume?.skills || []).map(normalize)
   );
 
   const results = jobs
@@ -38,21 +43,27 @@ export function matchJobs(resume, jobs) {
         (requiredScore * 80) + (preferredScore * 20)
       );
 
+      const allMatched = [
+        ...matchedRequired,
+        ...matchedPreferred
+      ];
+
       return {
+        id: job.id,
         jobId: job.id,
         title: job.title,
         company: job.company,
         location: job.location || "Not specified",
+        score,
         matchScore: score,
-        matchedSkills: [
-          ...matchedRequired,
-          ...matchedPreferred
-        ],
+        matched: allMatched,
+        matchedSkills: allMatched,
+        missing: missingRequired,
         missingRequiredSkills: missingRequired
       };
     });
 
   return results.sort(
-    (a, b) => b.matchScore - a.matchScore
+    (a, b) => b.score - a.score
   );
 }

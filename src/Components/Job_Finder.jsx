@@ -71,8 +71,8 @@ function JobFinder({ onBack }) {
               </div>
 
               <div className="skill-chips">
-                {job.matched.map((skill) => <span className="skill-chip positive" key={skill}>{skill}</span>)}
-                {job.missing.map((skill) => <span className="skill-chip negative" key={skill}>{skill}</span>)}
+                {(job.matched || []).map((skill) => <span className="skill-chip positive" key={skill}>{skill}</span>)}
+                {(job.missing || []).map((skill) => <span className="skill-chip negative" key={skill}>{skill}</span>)}
               </div>
             </div>
           ))}
