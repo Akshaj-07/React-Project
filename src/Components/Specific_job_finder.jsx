@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ResumeUpload from "./ResumeUpload.jsx";
+import Result from "./Result.jsx";
 import { matchResumeToJob } from "../Services/jobServices.js";
 
 function SpecificJobFinder({ onBack }) {
@@ -75,34 +76,13 @@ function SpecificJobFinder({ onBack }) {
       </section>
 
       {result && (
-        <section className="scan-results">
-          <div className="scan-score-panel">
-            <div className="scan-score-number">{result.score}<span>%</span></div>
-            <div>
-              <div className="eyebrow">KEYWORD MATCH ESTIMATE</div>
-              <h2>{result.matched.length} of {result.totalSkills} required skills found</h2>
-              <p>This is a keyword-match estimate, not a guaranteed ATS score.</p>
-            </div>
-          </div>
-
-          <div className="tool-panel detected-skills-panel">
-            <h3>Matched skills</h3>
-            {result.matched.length ? (
-              <div className="skill-chips">
-                {result.matched.map((skill) => <span className="skill-chip positive" key={skill}>{skill}</span>)}
-              </div>
-            ) : <p className="empty-skills">No matching skills found.</p>}
-          </div>
-
-          <div className="tool-panel detected-skills-panel">
-            <h3>Missing skills</h3>
-            {result.missing.length ? (
-              <div className="skill-chips">
-                {result.missing.map((skill) => <span className="skill-chip negative" key={skill}>{skill}</span>)}
-              </div>
-            ) : <p className="empty-skills">No missing skills — great coverage!</p>}
-          </div>
-        </section>
+        <Result
+          atsScore={result.score}
+          matchedSkills={result.matched}
+          missingSkills={result.missing}
+          review={result.review}
+          title="Job Compatibility Analysis"
+        />
       )}
     </main>
   );
